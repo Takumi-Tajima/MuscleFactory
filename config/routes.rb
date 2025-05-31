@@ -6,6 +6,11 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root 'home#index'
+    resources :training_exercises, only: %i[index show new create edit update destroy]
+  end
+
+  namespace :users do
+    resources :training_exercises, only: %i[index show new create edit update destroy]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check

@@ -1,0 +1,24 @@
+.row.mb-4
+  .col-12.d-flex.justify-content-between.align-items-center
+    %h1 トレーニング種目詳細
+    = link_to '一覧に戻る', users_training_exercises_path, class: 'btn btn-outline-secondary'
+
+.row.mb-4
+  .col-12
+    .card
+      .card-body
+        .row.mb-3
+          .col-md-3.fw-bold 種目名
+          .col-md-9= @training_exercise.name
+        .row.mb-3
+          .col-md-3.fw-bold 説明
+          .col-md-9= @training_exercise.description
+
+.row
+  .col-12
+    .d-flex
+      = link_to '編集', edit_users_training_exercise_path(@training_exercise), class: 'btn btn-success me-2'
+      = button_to '削除', users_training_exercise_path(@training_exercise),
+        method: :delete,
+        data: { turbo_confirm: '本当に削除しますか？' },
+        class: 'btn btn-danger me-2'

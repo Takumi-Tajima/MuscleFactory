@@ -1,0 +1,28 @@
+.row.mb-4
+  .col-12
+    %h1 トレーニング種目詳細
+
+.row.mb-4
+  .col-12
+    .card
+      .card-body
+        .row.mb-3
+          .col-md-3.fw-bold 種目名
+          .col-md-9= @training_exercise.name
+        .row.mb-3
+          .col-md-3.fw-bold 説明
+          .col-md-9= simple_format(@training_exercise.description)
+        .row.mb-3
+          .col-md-3.fw-bold 作成日時
+          .col-md-9= l(@training_exercise.created_at)
+        .row
+          .col-md-3.fw-bold 更新日時
+          .col-md-9= l(@training_exercise.updated_at)
+
+.row
+  .col-12
+    = link_to '編集', edit_admins_training_exercise_path(@training_exercise), class: 'btn btn-success me-2'
+    = button_to '削除', admins_training_exercise_path(@training_exercise),
+      method: :delete,
+      data: { turbo_confirm: '本当に削除しますか？' },
+      class: 'btn btn-danger me-2'

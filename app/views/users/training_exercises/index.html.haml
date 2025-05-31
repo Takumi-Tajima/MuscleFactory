@@ -1,0 +1,20 @@
+%h1.mb-4 トレーニング種目一覧
+
+.row
+  .col-12.mb-4
+    = link_to '新規作成', new_users_training_exercise_path, class: 'btn btn-primary'
+
+.row
+  - @training_exercises.each do |exercise|
+    .col-md-4.mb-4
+      .card
+        .card-body
+          %h5.card-title= exercise.name
+          %p.card-text= truncate(exercise.description, length: 100)
+          .d-flex.justify-content-end
+            = link_to '詳細', users_training_exercise_path(exercise), class: 'btn btn-sm btn-info me-2'
+            = link_to '編集', edit_users_training_exercise_path(exercise), class: 'btn btn-sm btn-success me-2'
+            = button_to '削除', users_training_exercise_path(exercise),
+              method: :delete,
+              data: { turbo_confirm: '本当に削除しますか？' },
+              class: 'btn btn-sm btn-danger'
