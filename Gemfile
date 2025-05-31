@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 gem 'rails'
 
 gem 'cssbundling-rails'
+# Rails8にdevise gemのtest_helpersが対応していないためmainブランチを指定
+gem 'devise', git: 'https://github.com/heartcombo/devise', branch: 'main'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
