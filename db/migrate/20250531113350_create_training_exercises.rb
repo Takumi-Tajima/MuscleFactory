@@ -4,6 +4,8 @@ class CreateTrainingExercises < ActiveRecord::Migration[8.0]
       t.string :name, null: false
       t.text :description, null: false
 
+      t.index :name, unique: true
+
       t.timestamps
     end
   end
