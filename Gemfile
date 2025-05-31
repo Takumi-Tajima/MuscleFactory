@@ -34,6 +34,7 @@ end
 group :development do
   gem 'bullet'
   gem 'html2haml'
+  gem 'letter_opener_web'
   gem 'web-console'
 end
 
