@@ -1,0 +1,4 @@
+= simple_form_for [:users, training_exercise] do |f|
+  = f.input :name
+  = f.input :description, input_html: { rows: 5 }
+  = f.button :submit, class: 'btn-primary me-2'
