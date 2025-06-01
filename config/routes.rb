@@ -2,15 +2,18 @@ Rails.application.routes.draw do
   devise_for :users
   devise_for :admins, controllers: { sessions: 'admins/sessions' }
 
-  root 'users/home#index'
+  root 'users/training_exercises#index'
 
   namespace :admins do
-    root 'home#index'
+    root 'training_exercises#index'
     resources :training_exercises, only: %i[index show new create edit update destroy]
+    resources :muscle_groups, only: %i[index show new create edit update destroy]
   end
 
   namespace :users do
+    root 'training_exercises#index'
     resources :training_exercises, only: %i[index show new create edit update destroy]
+    resources :muscle_groups, only: %i[index show new create edit update destroy]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check

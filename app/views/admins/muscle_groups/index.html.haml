@@ -1,0 +1,26 @@
+%h1.mb-4 部位一覧
+
+.row
+  .col-12.mb-4
+    = link_to '新規作成', new_admins_muscle_group_path, class: 'btn btn-primary'
+
+.row
+  .col-12
+    %table.table.table-striped.table-hover
+      %thead
+        %tr
+          %th 名前
+          %th 作成日時
+          %th
+      %tbody
+        - @muscle_groups.each do |muscle_group|
+          %tr
+            %td= muscle_group.name
+            %td= l(muscle_group.created_at)
+            %td.text-end
+              = link_to '詳細', admins_muscle_group_path(muscle_group), class: 'btn btn-sm btn-info me-2'
+              = link_to '編集', edit_admins_muscle_group_path(muscle_group), class: 'btn btn-sm btn-success me-2'
+              = button_to '削除', admins_muscle_group_path(muscle_group),
+                method: :delete,
+                data: { turbo_confirm: '本当に削除しますか？' },
+                class: 'btn btn-sm btn-danger'

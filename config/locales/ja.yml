@@ -4,6 +4,7 @@ ja:
       training_exercise:
         name: トレーニング種目
         description: 説明
+        muscle_group_names: ターゲット部位
       user:
         name: 名前
         email: メールアドレス
