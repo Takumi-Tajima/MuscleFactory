@@ -8,12 +8,14 @@ Rails.application.routes.draw do
     root 'training_exercises#index'
     resources :training_exercises, only: %i[index show new create edit update destroy]
     resources :muscle_groups, only: %i[index show new create edit update destroy]
+    resources :exercise_tags, only: %i[index show new create edit update destroy]
   end
 
   namespace :users do
     root 'training_exercises#index'
     resources :training_exercises, only: %i[index show new create edit update destroy]
     resources :muscle_groups, only: %i[index show new create edit update destroy]
+    resources :exercise_tags, only: %i[index show new create edit update destroy]
   end
 
   get 'up' => 'rails/health#show', as: :rails_health_check

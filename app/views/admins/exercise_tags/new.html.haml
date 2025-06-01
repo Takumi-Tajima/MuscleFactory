@@ -1,0 +1,6 @@
+.row.mb-4
+  .col-12.d-flex.justify-content-between.align-items-center
+    %h1 タグ新規作成
+    = link_to '一覧に戻る', admins_exercise_tags_path, class: 'btn btn-outline-secondary'
+
+= render 'form', exercise_tag: @exercise_tag
