@@ -1,0 +1,21 @@
+.row.mb-4
+  .col-12.d-flex.justify-content-between.align-items-center
+    %h1 タグ詳細
+    = link_to '一覧に戻る', admins_exercise_tags_path, class: 'btn btn-outline-secondary'
+
+.row.mb-4
+  .col-12
+    .card
+      .card-body
+        .row.mb-3
+          .col-md-3.fw-bold タグ名
+          .col-md-9= @exercise_tag.name
+
+.row
+  .col-12
+    .d-flex
+      = link_to '編集', edit_admins_exercise_tag_path(@exercise_tag), class: 'btn btn-success me-2'
+      = button_to '削除', admins_exercise_tag_path(@exercise_tag),
+        method: :delete,
+        data: { turbo_confirm: '本当に削除しますか？' },
+        class: 'btn btn-danger me-2'

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_01_024507) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_01_095121) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -30,6 +30,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_024507) do
     t.datetime "updated_at", null: false
     t.index ["muscle_group_id"], name: "index_exercise_muscle_groups_on_muscle_group_id"
     t.index ["training_exercise_id", "muscle_group_id"], name: "idx_on_training_exercise_id_muscle_group_id_77cb346de0", unique: true
+  end
+
+  create_table "exercise_taggings", force: :cascade do |t|
+    t.bigint "training_exercise_id", null: false
+    t.bigint "exercise_tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exercise_tag_id"], name: "index_exercise_taggings_on_exercise_tag_id"
+    t.index ["training_exercise_id", "exercise_tag_id"], name: "idx_on_training_exercise_id_exercise_tag_id_ca2c97d854", unique: true
+  end
+
+  create_table "exercise_tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_exercise_tags_on_name", unique: true
   end
 
   create_table "muscle_groups", force: :cascade do |t|
@@ -72,4 +88,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_024507) do
 
   add_foreign_key "exercise_muscle_groups", "muscle_groups"
   add_foreign_key "exercise_muscle_groups", "training_exercises"
+  add_foreign_key "exercise_taggings", "exercise_tags"
+  add_foreign_key "exercise_taggings", "training_exercises"
 end

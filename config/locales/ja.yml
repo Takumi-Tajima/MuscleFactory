@@ -5,6 +5,9 @@ ja:
         name: トレーニング種目
         description: 説明
         muscle_group_names: ターゲット部位
+        exercise_tag_names: タグ
+      exercise_tag:
+        name: タグ名
       user:
         name: 名前
         email: メールアドレス
