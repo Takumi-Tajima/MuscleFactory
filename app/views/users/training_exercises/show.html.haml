@@ -13,6 +13,9 @@
         .row.mb-3
           .col-md-3.fw-bold 説明
           .col-md-9= @training_exercise.description
+        .row.mb-3
+          .col-md-3.fw-bold ターゲット部位
+          .col-md-9= @training_exercise.muscle_groups.map(&:name).join(', ')
 
 .row
   .col-12
