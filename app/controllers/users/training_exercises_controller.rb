@@ -45,6 +45,6 @@ class Users::TrainingExercisesController < Users::ApplicationController
   end
 
   def training_exercise_params
-    params.expect(training_exercise: %w[name description muscle_group_names])
+    params.expect(training_exercise: %w[name description muscle_group_names exercise_tag_names])
   end
 end
