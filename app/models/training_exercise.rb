@@ -3,6 +3,7 @@ class TrainingExercise < ApplicationRecord
   has_many :muscle_groups, through: :exercise_muscle_groups
   has_many :exercise_taggings, dependent: :destroy
   has_many :exercise_tags, through: :exercise_taggings
+  has_many :workout_schedule_exercises, dependent: :restrict_with_exception
 
   attr_accessor :muscle_group_names, :exercise_tag_names
 
