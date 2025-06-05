@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   namespace :admins do
     root 'training_exercises#index'
+    resources :workout_schedules, only: %i[index show edit update destroy]
     resources :training_exercises, only: %i[index show new create edit update destroy]
     resources :muscle_groups, only: %i[index show new create edit update destroy]
     resources :exercise_tags, only: %i[index show new create edit update destroy]
@@ -13,6 +14,7 @@ Rails.application.routes.draw do
 
   namespace :users do
     root 'training_exercises#index'
+    resources :workout_schedules, only: %i[index show new create edit update destroy]
     resources :training_exercises, only: %i[index show new create edit update destroy]
     resources :muscle_groups, only: %i[index show new create edit update destroy]
     resources :exercise_tags, only: %i[index show new create edit update destroy]

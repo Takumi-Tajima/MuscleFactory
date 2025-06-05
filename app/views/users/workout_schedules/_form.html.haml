@@ -1,0 +1,10 @@
+= simple_form_for [:users, workout_schedule] do |f|
+  = f.error_notification
+
+  .row
+    .col-md-6
+      = f.input :scheduled_on, as: :date, label: 'スケジュール日'
+
+  .mt-3
+    = f.button :submit, class: 'btn-primary me-2'
+    = link_to '戻る', users_workout_schedules_path, class: 'btn btn-secondary'

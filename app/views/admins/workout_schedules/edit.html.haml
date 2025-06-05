@@ -1,0 +1,8 @@
+.container
+  .row
+    .col-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        %h1 スケジュール編集
+        = link_to '戻る', admins_workout_schedule_path(@workout_schedule), class: 'btn btn-secondary'
+
+      = render 'form', workout_schedule: @workout_schedule

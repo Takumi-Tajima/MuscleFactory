@@ -1,0 +1,10 @@
+= simple_form_for [:admins, workout_schedule] do |f|
+  = f.error_notification
+
+  .row
+    .col-md-6
+      = f.input :scheduled_on, as: :date, label: 'スケジュール日'
+      = f.association :user, label: 'ユーザー'
+
+  .mt-3
+    = f.button :submit, class: 'btn-primary me-2'

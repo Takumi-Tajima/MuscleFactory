@@ -1,0 +1,22 @@
+.container
+  .row
+    .col-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        %h1 マイスケジュール
+        = link_to '新規作成', new_users_workout_schedule_path, class: 'btn btn-primary'
+
+      .table-responsive
+        %table.table
+          %thead
+            %tr
+              %th スケジュール日
+              %th 操作
+
+          %tbody
+            - @workout_schedules.each do |schedule|
+              %tr
+                %td= l schedule.scheduled_on
+                %td
+                  = link_to '詳細', users_workout_schedule_path(schedule), class: 'btn btn-info btn-sm me-2'
+                  = link_to '編集', edit_users_workout_schedule_path(schedule), class: 'btn btn-warning btn-sm me-2'
+                  = link_to '削除', users_workout_schedule_path(schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger btn-sm'

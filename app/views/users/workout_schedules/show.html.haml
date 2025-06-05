@@ -1,0 +1,31 @@
+.container
+  .row
+    .col-12
+      .d-flex.justify-content-between.align-items-center.mb-4
+        %h1 スケジュール詳細
+        = link_to '一覧に戻る', users_workout_schedules_path, class: 'btn btn-secondary'
+
+      .card.mb-4
+        .card-body
+          %h5.card-title スケジュール情報
+          %p.card-text
+            %strong 日付：
+            = l @workout_schedule.scheduled_on
+
+      %h2 登録された運動
+      .table-responsive
+        %table.table
+          %thead
+            %tr
+              %th 運動名
+              %th 説明
+
+          %tbody
+            - @workout_schedule.workout_schedule_exercises.each do |schedule_exercise|
+              %tr
+                %td= schedule_exercise.training_exercise.name
+                %td= schedule_exercise.training_exercise.description
+
+      .d-flex.gap-2.mt-4
+        = link_to '編集', edit_users_workout_schedule_path(@workout_schedule), class: 'btn btn-warning'
+        = link_to '削除', users_workout_schedule_path(@workout_schedule), data: { turbo_method: :delete, turbo_confirm: '本当に削除しますか？' }, class: 'btn btn-danger'
