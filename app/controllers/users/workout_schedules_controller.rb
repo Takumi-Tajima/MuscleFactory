@@ -45,6 +45,6 @@ class Users::WorkoutSchedulesController < Users::ApplicationController
   end
 
   def workout_schedule_params
-    params.expect(workout_schedule: %w[scheduled_on user_id])
+    params.expect(workout_schedule: %i[scheduled_on user_id])
   end
 end

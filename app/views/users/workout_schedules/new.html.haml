@@ -1,7 +1,3 @@
-.container
-  .row
-    .col-12
-      .d-flex.justify-content-between.align-items-center.mb-4
-        %h1 スケジュール作成
+%h1.mb-4 スケジュール作成
 
-      = render 'form', workout_schedule: @workout_schedule
+= render 'form', workout_schedule: @workout_schedule, training_exercises: @training_exercises
