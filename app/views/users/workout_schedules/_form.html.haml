@@ -1,0 +1,15 @@
+= simple_form_for([:users, workout_schedule]) do |f|
+  = f.error_notification
+
+  .row.mb-4
+    .col-md-4
+      = f.input :scheduled_on, as: :date
+  
+  .row.mb-4
+    .col-md-4
+      = f.fields_for :workout_schedule_exercises do |we_f|
+        = we_f.input :training_exercise_id, collection: TrainingExercise.default_order, as: :select, include_blank: '種目を入力してください'
+
+  .form-actions
+    = f.button :submit, class: "btn btn-primary"
+    = link_to "戻る", users_workout_schedules_path, class: "btn btn-link"
