@@ -6,6 +6,7 @@ class Users::WorkoutSchedulesController < Users::ApplicationController
   end
 
   def show
+    @workout_schedule_exercise = @workout_schedule.workout_schedule_exercises.preload(:training_exercise).default_order
   end
 
   def new

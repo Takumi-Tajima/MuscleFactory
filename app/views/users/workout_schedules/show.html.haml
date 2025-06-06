@@ -21,7 +21,7 @@
               %th 説明
 
           %tbody
-            - @workout_schedule.workout_schedule_exercises.each do |schedule_exercise|
+            - @workout_schedule_exercise.each do |schedule_exercise|
               %tr
                 %td= schedule_exercise.training_exercise.name
                 %td= schedule_exercise.training_exercise.description
