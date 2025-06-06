@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_01_141536) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_06_030303) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -30,6 +30,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_141536) do
     t.datetime "updated_at", null: false
     t.index ["muscle_group_id"], name: "index_exercise_muscle_groups_on_muscle_group_id"
     t.index ["training_exercise_id", "muscle_group_id"], name: "idx_on_training_exercise_id_muscle_group_id_77cb346de0", unique: true
+  end
+
+  create_table "exercise_sets", force: :cascade do |t|
+    t.bigint "workout_schedule_exercise_id", null: false
+    t.integer "reps", null: false
+    t.float "weight_kg", null: false
+    t.string "memo", default: "", null: false
+    t.boolean "completed", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["workout_schedule_exercise_id"], name: "index_exercise_sets_on_workout_schedule_exercise_id"
   end
 
   create_table "exercise_taggings", force: :cascade do |t|
@@ -105,6 +116,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_01_141536) do
 
   add_foreign_key "exercise_muscle_groups", "muscle_groups"
   add_foreign_key "exercise_muscle_groups", "training_exercises"
+  add_foreign_key "exercise_sets", "workout_schedule_exercises"
   add_foreign_key "exercise_taggings", "exercise_tags"
   add_foreign_key "exercise_taggings", "training_exercises"
   add_foreign_key "workout_schedule_exercises", "training_exercises"
