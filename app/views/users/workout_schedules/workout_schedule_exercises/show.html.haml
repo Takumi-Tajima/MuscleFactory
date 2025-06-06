@@ -1,0 +1,33 @@
+.container.mt-4
+  .d-flex.justify-content-between.align-items-center.mb-4
+    %h1.mb-0
+      = @workout_schedule_exercise.training_exercise.name
+    = link_to users_workout_schedule_path(@workout_schedule), class: 'btn btn-outline-secondary' do
+      %i.bi.bi-arrow-left
+      スケジュール詳細に戻る
+  %h2.my-3.fs-5.card
+    .card-body
+      = @workout_schedule_exercise.training_exercise.description
+
+  .card
+    .card-body
+      %table.table.table-hover
+        %thead
+          %tr
+            %th セット
+            %th 重量(kg)
+            %th 回数
+            %th メモ
+            %th ステータス
+        %tbody
+          - @exercise_sets.each.with_index(1) do |set, index|
+            %tr
+              %td= index
+              %td= set.weight_kg
+              %td= set.reps
+              %td= set.memo
+              %td
+                - if set.completed
+                  %span.badge.bg-success 完了
+                - else
+                  %span.badge.bg-secondary 未完了
