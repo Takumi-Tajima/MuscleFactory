@@ -1,6 +1,11 @@
 ja:
   activerecord:
     attributes:
+      exercise_set:
+        weight_kg: 重量
+        reps: 回数
+        memo: メモ
+        completed: 完了
       training_exercise:
         name: トレーニング種目
         description: 説明

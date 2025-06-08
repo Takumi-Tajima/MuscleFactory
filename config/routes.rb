@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   namespace :users do
     root 'training_exercises#index'
     resources :workout_schedules, only: %i[index show new create edit update destroy] do
-      resources :workout_schedule_exercises, only: %i[show], module: :workout_schedules
+      resources :workout_schedule_exercises, only: %i[show], module: :workout_schedules do
+        resources :exercise_sets, only: %i[new create edit update destroy], module: :workout_schedule_exercises
+      end
     end
     resources :training_exercises, only: %i[index show new create edit update destroy]
     resources :muscle_groups, only: %i[index show new create edit update destroy]

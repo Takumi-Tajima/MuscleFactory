@@ -1,0 +1,16 @@
+= simple_form_for [:users, workout_schedule, workout_schedule_exercise, exercise_set] do |f|
+  .form-group
+    = f.input :weight_kg, input_html: { required: true }
+  
+  .form-group
+    = f.input :reps, input_html: { required: true }
+  
+  .form-group
+    = f.input :memo, input_html: { rows: 3 }
+  
+  .form-grop
+    = f.input :completed, as: :boolean, input_html: { class: 'form-check-input' }
+  
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'
+    = link_to '戻る', users_workout_schedule_workout_schedule_exercise_path(workout_schedule, workout_schedule_exercise), class: 'btn btn-secondary'
