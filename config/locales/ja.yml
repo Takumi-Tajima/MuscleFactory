@@ -1,6 +1,11 @@
 ja:
   activerecord:
     attributes:
+      exercise_set:
+        weight_kg: 重量
+        reps: 回数
+        memo: メモ
+        completed: 完了
       training_exercise:
         name: トレーニング種目
         description: 説明
@@ -192,7 +197,7 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分"
+      default: "%Y年%m月%d日(%a)"
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後

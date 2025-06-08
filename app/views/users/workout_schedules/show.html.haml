@@ -19,12 +19,17 @@
             %tr
               %th 運動名
               %th 説明
+              %th セット
 
           %tbody
-            - @workout_schedule.workout_schedule_exercises.each do |schedule_exercise|
+            - @workout_schedule_exercise.each do |schedule_exercise|
               %tr
                 %td= schedule_exercise.training_exercise.name
                 %td= schedule_exercise.training_exercise.description
+                %td
+                  = link_to users_workout_schedule_workout_schedule_exercise_path(@workout_schedule, schedule_exercise), class: 'btn btn-primary btn-sm' do
+                    %i.bi.bi-list-ul.me-1
+                    セット一覧
 
       .d-flex.gap-2.mt-4
         = link_to '編集', edit_users_workout_schedule_path(@workout_schedule), class: 'btn btn-warning'

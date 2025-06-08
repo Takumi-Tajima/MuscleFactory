@@ -1,14 +1,21 @@
-= simple_form_for([:users, workout_schedule]) do |f|
-  = f.error_notification
+= simple_form_for [:users, workout_schedule], data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f|
 
   .row.mb-4
     .col-md-4
       = f.input :scheduled_on, as: :date
   
+  %template{ data: { nested_form_target: "template" } }
+    = f.simple_fields_for :workout_schedule_exercises, WorkoutScheduleExercise.new, child_index: "NEW_RECORD" do |we_f|
+      = render 'workout_schedule_exercise_fields', f: we_f
+
   .row.mb-4
     .col-md-4
-      = f.fields_for :workout_schedule_exercises do |we_f|
-        = we_f.input :training_exercise_id, collection: TrainingExercise.default_order, as: :select, include_blank: '種目を入力してください'
+      = f.simple_fields_for :workout_schedule_exercises do |we_f|
+        = render 'workout_schedule_exercise_fields', f: we_f
+
+      .nested-form-container{ data: { nested_form_target: "target" } }
+
+      %button.btn.btn-secondary.mt-2{ type: "button", data: { action: "nested-form#add" } } 新しい種目を追加
 
   .form-actions
     = f.button :submit, class: "btn btn-primary"

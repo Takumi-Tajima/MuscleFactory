@@ -1,0 +1,15 @@
+= simple_form_for [:users, workout_schedule, workout_schedule_exercise, exercise_set], data:  { turbo_frame: 'exercise_sets_content' } do |f|
+  .form-group
+    = f.input :weight_kg, input_html: { required: true }
+  
+  .form-group
+    = f.input :reps, input_html: { required: true }
+  
+  .form-group
+    = f.input :memo, input_html: { rows: 3 }
+  
+  .form-grop
+    = f.input :completed, as: :boolean, input_html: { class: 'form-check-input' }
+  
+  .form-actions
+    = f.button :submit, class: 'btn btn-primary'

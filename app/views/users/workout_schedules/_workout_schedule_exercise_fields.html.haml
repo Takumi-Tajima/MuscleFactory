@@ -1,0 +1,5 @@
+.nested-form-wrapper{ data: { new_record: f.object.new_record? } }
+  = f.input :training_exercise_id, collection: TrainingExercise.default_order, as: :select, include_blank: '種目を入力してください'
+  = f.hidden_field :_destroy
+
+  %button.btn.btn-danger{ type: "button", data: { action: "nested-form#remove" } } 削除
