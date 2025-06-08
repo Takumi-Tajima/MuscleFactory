@@ -10,8 +10,9 @@ class Users::WorkoutSchedules::WorkoutScheduleExercises::ExerciseSetsController 
     @exercise_set = @workout_schedule_exercise.exercise_sets.build(exercise_set_params)
 
     if @exercise_set.save
-      redirect_to users_workout_schedule_workout_schedule_exercise_path(@workout_schedule, @workout_schedule_exercise),
-                  notice: 'Exercise set was successfully created.'
+
+      # redirect_to users_workout_schedule_workout_schedule_exercise_path(@workout_schedule, @workout_schedule_exercise),
+      #             notice: 'Exercise set was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

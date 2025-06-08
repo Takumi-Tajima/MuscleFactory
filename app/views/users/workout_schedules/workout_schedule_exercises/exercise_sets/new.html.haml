@@ -1,3 +1,9 @@
-%h1.fs-2 セットを追加
-
-= render 'form', workout_schedule: @workout_schedule, workout_schedule_exercise: @workout_schedule_exercise, exercise_set: @exercise_set
+= turbo_frame_tag 'modal' do
+  .modal.fade{tabindex: "-1", data: { controller: 'modal', action: 'turbo:submit-end->modal#close' }}
+    .modal-dialog
+      .modal-content
+        .modal-header
+          %h2.fs-5.modal-title セットの追加
+          %button.btn-close{type: "button", "data-bs-dismiss": "modal", "aria-label": "Close"}
+        .modal-body
+          = render 'form', workout_schedule: @workout_schedule, workout_schedule_exercise: @workout_schedule_exercise, exercise_set: @exercise_set

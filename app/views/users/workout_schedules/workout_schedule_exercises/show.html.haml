@@ -9,7 +9,9 @@
     .card-body
       = @workout_schedule_exercise.training_exercise.description
   
-  = link_to 'セットを追加', new_users_workout_schedule_workout_schedule_exercise_exercise_set_path(@workout_schedule, @workout_schedule_exercise), class: 'btn btn-primary my-3'
+  = link_to 'セットを追加', 
+            new_users_workout_schedule_workout_schedule_exercise_exercise_set_path(@workout_schedule, @workout_schedule_exercise), 
+            class: 'btn btn-primary my-3', data: { turbo_frame: 'modal' }
 
   .card
     .card-body
