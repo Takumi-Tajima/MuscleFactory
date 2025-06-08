@@ -13,25 +13,7 @@
             new_users_workout_schedule_workout_schedule_exercise_exercise_set_path(@workout_schedule, @workout_schedule_exercise), 
             class: 'btn btn-primary my-3', data: { turbo_frame: 'modal' }
 
-  .card
-    .card-body
-      %table.table.table-hover
-        %thead
-          %tr
-            %th セット
-            %th 重量(kg)
-            %th 回数
-            %th メモ
-            %th ステータス
-        %tbody
-          - @exercise_sets.each.with_index(1) do |set, index|
-            %tr
-              %td= index
-              %td= set.weight_kg
-              %td= set.reps
-              %td= set.memo
-              %td
-                - if set.completed
-                  %span.badge.bg-success 完了
-                - else
-                  %span.badge.bg-secondary 未完了
+  = turbo_frame_tag 'exercise_sets_content' do
+    .card
+      .card-body
+        = render 'exercise_sets_table', exercise_sets: @exercise_sets

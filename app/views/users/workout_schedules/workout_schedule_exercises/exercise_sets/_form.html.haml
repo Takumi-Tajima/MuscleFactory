@@ -1,4 +1,4 @@
-= simple_form_for [:users, workout_schedule, workout_schedule_exercise, exercise_set] do |f|
+= simple_form_for [:users, workout_schedule, workout_schedule_exercise, exercise_set], data:  { turbo_frame: 'exercise_sets_content' } do |f|
   .form-group
     = f.input :weight_kg, input_html: { required: true }
   
